@@ -5,23 +5,97 @@ const { BinarySearchTree, TreeNode } = require('./binary-search-tree.js');
 // Practice problems on binary trees
 
 function findMinBST (rootNode) {
-  // Your code here
+  let queue = [rootNode]
+  let arr = []
+  while(queue.length) {
+    let currentNode = queue.shift()
+    arr.push(currentNode.val)
+    if (currentNode.left) {
+      queue.push(currentNode.left)
+    }
+    if (currentNode.right) {
+      queue.push(currentNode.right)
+    }
+
+  }
+  return Math.min(...arr)
 }
 
 function findMaxBST (rootNode) {
-  // Your code here
+  let queue = [rootNode]
+  let arr = []
+  while(queue.length) {
+    let currentNode = queue.shift()
+    arr.push(currentNode.val)
+    if (currentNode.left) {
+      queue.push(currentNode.left)
+    }
+    if (currentNode.right) {
+      queue.push(currentNode.right)
+    }
+
+  }
+  return Math.max(...arr)
 }
 
 function findMinBT (rootNode) {
-  // Your code here
+  let queue = [rootNode]
+  let arr = []
+  while(queue.length) {
+    let currentNode = queue.shift()
+    arr.push(currentNode.val)
+    if (currentNode.left) {
+      queue.push(currentNode.left)
+    }
+    if (currentNode.right) {
+      queue.push(currentNode.right)
+    }
+
+  }
+  return Math.min(...arr)
 }
 
 function findMaxBT (rootNode) {
-  // Your code here
+  let queue = [rootNode]
+  let arr = []
+  while(queue.length) {
+    let currentNode = queue.shift()
+    arr.push(currentNode.val)
+    if (currentNode.left) {
+      queue.push(currentNode.left)
+    }
+    if (currentNode.right) {
+      queue.push(currentNode.right)
+    }
+
+  }
+  return Math.max(...arr)
 }
 
 function getHeight (rootNode) {
-  // Your code here
+
+  // if (rootNode === null) return 0
+  // if(!rootNode.left && !rootNode.right) return 0
+  // return 1 + Math.max(getHeight(rootNode.left), getHeight(rootNode.right))
+
+  rootNode.level = 0
+  let arr = [rootNode]
+  let count = 0
+  while (arr.length) {
+    let currentNode = arr.shift()
+    if (currentNode.left) {
+      currentNode.left.level = currentNode.level + 1
+      arr.push(currentNode.left)
+    } if (currentNode.right) {
+      currentNode.right.level = currentNode.level + 1
+      arr.push(currentNode.right)
+    }
+    if (currentNode.level > count) {
+      count = currentNode.level
+    }
+
+  }
+  return count
 }
 
 function countNodes (rootNode) {
