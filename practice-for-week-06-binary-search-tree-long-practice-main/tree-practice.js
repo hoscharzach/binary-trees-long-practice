@@ -154,8 +154,33 @@ function balancedTree(rootNode) {
 
 
 function getParentNode(rootNode, target) {
-  // Your code here
+
+  if (rootNode.val === target) return null
+
+  const getParent = function (root, n, parent) {
+
+
+    while (root) {
+
+      if (!root) return null;
+      if (root.val === n) return parent;
+      // return and chain with logical OR
+      return getParent(root.left, n, root) || getParent(root.right, n, root);
+    }
+    return undefined
+  }
+
+  return getParent(rootNode, target)
+
+
 }
+
+
+
+
+
+
+
 
 function inOrderPredecessor(rootNode, target) {
   // Your code here
