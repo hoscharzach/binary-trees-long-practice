@@ -98,6 +98,23 @@ function getHeight(rootNode) {
   return count
 }
 
+//alternative getHeight function
+// function getHeight(rootNode) {
+
+//   let maxDepth = 0
+
+//   let getDepth = (node, level) => {
+
+//     if (node === null) return
+//     if (level > maxDepth) maxDepth = level;
+//     getDepth(node.left, level + 1)
+//     getDepth(node.right, level + 1)
+//   }
+
+//   getDepth(rootNode, 0)
+//   return maxDepth
+// }
+
 function countNodes(rootNode) {
   // Your code here
 
